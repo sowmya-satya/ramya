@@ -49,6 +49,10 @@ node {
         
         }
 	
+	stage('Deploy Approval') {
+	input "Deploy to prod?"
+	}
+	
    stage('Docker-Stage-Deployment') {
    sh label: '', script: 'docker-compose up -d --build'
   }
