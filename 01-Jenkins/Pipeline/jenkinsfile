@@ -59,8 +59,7 @@ node {
  
   stage('Geting Ready For Ansible') {
   sh label: 'Docker', script: 'cp -rf target/*.war ../../../04-Terraform/03-Ansible-Deploy/ansible/04-Tomcat/templates/'
-  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > ../../../04-Terraform/03-Ansible-Deploy/ansible/04-Tomcat/templates/apps/index.html"
-}  
+  }  
    
  }
 
@@ -83,7 +82,7 @@ notify('Job Completed')
 
 def notify(status){
     emailext (
-	to: "saicharan713@gmail.com",
+	to: "sowmyarayapureddy@gmail.com",
 	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 	 body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
